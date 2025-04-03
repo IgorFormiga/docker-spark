@@ -97,26 +97,3 @@ your original hosts file with:
 ```shell
 sudo make dns-restore
 ```
-
-For more information read the story I published on Medium
-[here](https://medium.com/@MarinAgli1/using-hostnames-to-access-hadoop-resources-running-on-docker-5860cd7aeec1).
-
-
-# Stories published on Medium
-1. Setting up a standalone Spark cluster can be found [here](https://medium.com/@MarinAgli1/setting-up-a-spark-standalone-cluster-on-docker-in-layman-terms-8cbdc9fdd14b).
-2. Setting up Hadoop Yarn to run Spark applications can be found [here](https://medium.com/@MarinAgli1/setting-up-hadoop-yarn-to-run-spark-applications-6ea1158287af).
-3. Using hostnames to access Hadoop resources can be found [here](https://medium.com/@MarinAgli1/using-hostnames-to-access-hadoop-resources-running-on-docker-5860cd7aeec1).
-
-# About the book_data directory
-The official repo of the book Data Analysis with Python and
-PySpark can be found here:https://github.com/jonesberg/DataAnalysisWithPythonAndPySpark.
-
-I did not include the files from this repo as there are
-files larger than 50 MB which is the limit for GitHub. At the
-time of writing the repo contains a link to Dropbox which
-contains the files. I suggest you download them.
-
-The book_data directory contains some files found on
-this repo:
-https://github.com/maprihoda/data-analysis-with-python-and-pyspark.
-Which is also a repo of someone who read the mentioned book.
