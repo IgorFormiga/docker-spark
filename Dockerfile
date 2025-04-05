@@ -44,7 +44,7 @@ ENV SPARK_MASTER_HOST spark-master
 ENV SPARK_MASTER_PORT 7077
 ENV PYSPARK_PYTHON python3
 
-COPY conf/spark-defaults.conf "$SPARK_HOME/conf"
+COPY config/spark/spark-defaults.conf "$SPARK_HOME/config/spark/"
 
 RUN chmod u+x /opt/spark/sbin/* && \
     chmod u+x /opt/spark/bin/*

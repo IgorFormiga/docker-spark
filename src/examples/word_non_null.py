@@ -1,3 +1,11 @@
+"""
+# Entrar no container
+$ docker exec -it da-spark-master bash
+
+# Submit application
+$ make submit app=examples/word_non_null.py
+"""
+
 import pyspark.sql.functions as F
 from pyspark.sql import SparkSession
 
@@ -5,7 +13,7 @@ spark = SparkSession.builder.appName(
     "Ch03 - Analyzing the vocabulary of Pride and Prejudice."
 ).getOrCreate()
 
-book = spark.read.text("/opt/spark/data/pride-and-prejudice.txt")
+book = spark.read.text("/opt/spark/data/examples/pride-and-prejudice.txt")
 
 lines = book.select(F.split(F.col("value"), " ").alias("line"))
 
@@ -21,4 +29,4 @@ results = words_nonull.groupby(F.col("word")).count()
 
 results.orderBy(F.col("count").desc()).show(10)
 
-results.coalesce(1).write.csv("/opt/spark/data/results/chapter03/simple_count.csv")
+results.coalesce(1).write.mode("overwrite").csv("/opt/spark/data/results/exemple/simple_count.csv")
