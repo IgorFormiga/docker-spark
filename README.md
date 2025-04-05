@@ -15,7 +15,7 @@ make submit app=dir/relative/to/spark_apps/dir
 ```
 e.g. 
 ```shell
-make submit app=examples/word_non_null.py
+make submit app=src/examples/word_non_null.py
 ```
 
 There are a number of commands to build the standalone cluster,
@@ -23,6 +23,10 @@ you should check the Makefile to see them all. But the
 simplest one is:
 ```shell
 make build
+```
+Remove containers
+```shell
+make down
 ```
 
 ## Web UIs
@@ -97,3 +101,6 @@ your original hosts file with:
 ```shell
 sudo make dns-restore
 ```
+
+Referencia: 
+- [Setting up a Spark standalone cluster on Docker in layman terms](https://medium.com/@MarinAgli1/setting-up-a-spark-standalone-cluster-on-docker-in-layman-terms-8cbdc9fdd14b)
