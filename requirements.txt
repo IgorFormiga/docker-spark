@@ -3,3 +3,6 @@ pandas
 pyarrow
 numpy
 pyspark
+pytest
+syrupy
+yaml

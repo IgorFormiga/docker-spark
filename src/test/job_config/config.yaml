@@ -1,0 +1,19 @@
+spark:
+  conf:
+    spark.sql.sources.partitionOverwriteMode: dynamic
+sources:
+  - name: tabelaA
+    format: x
+    path: y
+
+sinks:
+  - name: tabelaB
+    format: Y
+    mode: overwrite
+    partition_by:
+      - DATA_BASE
+    path: Z
+
+custom:
+  ref_date: "2025-04-05"
+  app_name: "src.trip_record_data.api_to_landing"
