@@ -22,5 +22,8 @@ run-d:
 stop:
 	docker-compose stop
 
+start:
+	docker-compose start
+
 submit:
 	docker exec da-spark-master spark-submit --master spark://spark-master:7077 --deploy-mode client ./apps/$(app)
