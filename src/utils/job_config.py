@@ -23,10 +23,12 @@ class JobConfig():
     def __init__(self, **config,) -> None:
         self._path = config["path"]
         self._config = self.register_config()
-        # self.spark = self._register_spark(self, self._config["spark"]["conf"], self._config["app_name"])
-        # self.sources = self._register_sources(self,  self._config["sources"])
-        # self.sinks = self._register_sinks(self, self._config["sinks"])
-        # self.custom = self._register_custom(self, self._config["custom"])
+        self._appname = self._config.custom["app_name"]
+        self._config_spark = self._config.spark
+        self.spark = self._builder_spark(self._config_spark, self._appname)
+        # self.sources = self._register_sources(self._config["sources"])
+        # self.sinks = self._register_sinks(self._config["sinks"])
+        # self.custom = self._register_custom(self._config["custom"])
     
     def register_config(self) -> Bunch:
         with open(f"{self._path}/config.yaml", "r") as file:
@@ -41,22 +43,21 @@ class JobConfig():
                 config_bunch[key] = value
         return config_bunch
 
-    def _register_spark(
+    def _builder_spark(
         self,
         spark_conf: List[Dict[str, Any]] = None,
         app_name: Optional[str] = None
     ):
-        pass
-        # spark_session_builder = SparkSession.builder.appName(app_name)
-        # for key, value in {**spark_conf}.items():
-        #     spark_session_builder.config(key,value)
+        spark_session_builder = SparkSession.builder.appName(app_name)
+        for key, value in {**spark_conf["conf"]}.items():
+            spark_session_builder.config(key,value)
 
-        # spark_session = spark_session_builder.getOrCreate()
+        spark_session = spark_session_builder.getOrCreate()
 
-        # logger.info(f"spark config: {spark_session.sparkContext.getConf().getAll()}")
-        # spark_session.sparkContext.setLogLevel("INFO")
+        logger.info(f"spark config: {spark_session.sparkContext.getConf().getAll()}")
+        spark_session.sparkContext.setLogLevel("INFO")
 
-        # return spark_session
+        return spark_session
     
     
     def _register_sources(

@@ -1,6 +1,7 @@
 spark:
   conf:
     spark.sql.sources.partitionOverwriteMode: dynamic
+    spark.sql.adaptive.enabled: true
 sources:
   - name: tabelaA
     format: x
