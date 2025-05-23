@@ -1,0 +1,39 @@
+{
+  "dev": {
+    "app": {
+      "name": "uber-eats-orders-pipeline",
+      "log_level": "INFO"
+    },
+    "spark": {
+      "log_level": "WARN",
+      "spark.sql.shuffle.partitions": 10,
+      "spark.sql.adaptive.enabled": true,
+      "master": "local[*]",
+      "spark.driver.memory": "1g",
+      "spark.executor.memory": "1g"
+    },
+    "paths": {
+      "input": "/opt/bitnami/spark/jobs/uber_eats/data/orders.json",
+      "output": "/opt/bitnami/spark/jobs/uber_eats/output/dev/orders"
+    }
+  },
+  "prod": {
+    "app": {
+      "name": "uber-eats-orders-pipeline",
+      "log_level": "INFO"
+    },
+    "spark": {
+      "log_level": "WARN",
+      "spark.sql.shuffle.partitions": 50,
+      "spark.sql.adaptive.enabled": true,
+      "master": "spark://spark-master:7077",
+      "spark.driver.memory": "1g",
+      "spark.executor.memory": "2g",
+      "spark.executor.instances": 2
+    },
+    "paths": {
+      "input": "/opt/bitnami/spark/jobs/uber_eats/data/orders.json",
+      "output": "/opt/bitnami/spark/jobs/uber_eats/output/prod/orders"
+    }
+  }
+}
