@@ -5,3 +5,5 @@ sparkmeasure==0.24.0
 deltalake==0.17.4
 delta-spark==3.2.0
 PyYAML==6.0.2
+pytest
+syrupy

@@ -177,3 +177,6 @@ storage/results
 
 #vscode
 .vscode
+
+#logs
+build/logs/
